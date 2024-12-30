@@ -3,7 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { Router } from '@angular/router';
 import { HttpOptions } from '@capacitor/core';
-import { IonCard, IonCardHeader, IonCardSubtitle, IonCardTitle, IonContent, IonHeader, IonTitle, IonToolbar } from '@ionic/angular/standalone';
+import { IonCard, IonCardContent, IonCardHeader, IonCardSubtitle, IonCardTitle, IonContent, IonHeader, IonTitle, IonToolbar } from '@ionic/angular/standalone';
 import { MyDataService } from '../services/my-data.service';
 import { MyHttpService } from '../services/my-http.service';
 
@@ -12,19 +12,20 @@ import { MyHttpService } from '../services/my-http.service';
   templateUrl: './weather.page.html',
   styleUrls: ['./weather.page.scss'],
   standalone: true,
-  imports: [IonCardSubtitle, IonCardTitle, IonCardHeader, IonCard, IonContent, IonHeader, IonTitle, IonToolbar, CommonModule, FormsModule]
+  imports: [IonCardContent, IonCardSubtitle, IonCardTitle, IonCardHeader, IonCard, IonContent, IonHeader, IonTitle, IonToolbar, CommonModule, FormsModule]
 })
 export class WeatherPage implements OnInit {
 
  constructor(private router: Router, private mhs: MyHttpService, private ds: MyDataService) {}
 
   apiKey:string = "8a7fc5f87d76122560a39f0e85a8195c";
-  latitude: any = "53";
-  longitude: any = "-8";
+  latitude: any = "54";
+  longitude: any = "-2";
   units: any = "metric";
-  countryWeather!:any;
+  capitalCity:string = "";
+  weatherInfo!:any;
   options:HttpOptions = {
-    url:' https://api.openweathermap.org/data/2.5/weather?lat=' + this.latitude + '&lon=' + this.longitude + '&units' + this.units + '&appid=' + this.apiKey
+    url:' https://api.openweathermap.org/data/2.5/weather?lat=' + this.latitude + '&lon=' + this.longitude + '&units' + this.units + '&appid='
   }
 
   ngOnInit() {
@@ -32,13 +33,15 @@ export class WeatherPage implements OnInit {
   }
 
   async getCountryName() {
+  this.capitalCity = await this.ds.get('capitalW');
     // this.apiKey = await this.ds.get('latlng');
-    // this.options.url = this.options.url.concat(this.apiKey);
+    this.options.url = this.options.url.concat(this.apiKey);
     let result = await this.mhs.get(this.options);
-    this.countryWeather = result.data.results;
+    this.weatherInfo = result.data;
     
     console.log(this.options.url);
-    // console.log(JSON.stringify(this.countryInfo.data));
+    console.log(this.weatherInfo);
+    console.log(JSON.stringify(this.weatherInfo));
     }
 
 }

@@ -53,7 +53,7 @@ export class CountryPage implements OnInit {
   async openWeather(c:any) {
     //set the keyword inputed in the home page to the storage in the data service
     await this.ds.set("latlng", c.latlng)
-    await this.ds.set("weather", c.capital)
+    await this.ds.set("capitalW", c.capital)
     this.router.navigate(['/weather'])
     console.log(c.latlng);
   }
