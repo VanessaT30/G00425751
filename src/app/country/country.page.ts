@@ -30,27 +30,27 @@ export class CountryPage implements OnInit {
   }
 
   async getKW() {
-    // set the keyword taken from storage in the data service
     this.keyword = await this.ds.get('kw');
-    // sets the new url with the input from user
     this.options.url = this.options.url.concat(this.keyword);
-    //this.movieInfo = this.mhs.get(this.options);
-
-    // fetches the url 
     let result = await this.mhs.get(this.options);
     this.countryInfo = result.data
     
     console.log(this.options.url);
-    
     // console.log(JSON.stringify(this.countryInfo.data));
-    
       }
   
-      async openNews() {
-            //set the keyword inputed in the home page to the storage in the data service
-        await this.ds.set("kw", this.keyword)
-        this.router.navigate(['/country'])
-        console.log(this.keyword);
-      }
+  async openNews() {
+    //set the keyword inputed in the home page to the storage in the data service
+    await this.ds.set("kw", this.keyword)
+    this.router.navigate(['/news'])
+    console.log(this.keyword);
+  }
+
+  async openWeather() {
+    //set the keyword inputed in the home page to the storage in the data service
+    await this.ds.set("kw", this.keyword)
+    this.router.navigate(['/weather'])
+    console.log(this.keyword);
+  }
 
 }
