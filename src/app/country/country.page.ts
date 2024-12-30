@@ -1,6 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { FormsModule } from '@angular/forms';
+import { Router } from '@angular/router';
 import { HttpOptions } from '@capacitor/core';
 import { IonButton, IonCard, IonCardHeader, IonCardSubtitle, IonCardTitle, IonContent, IonHeader, IonTitle, IonToolbar } from '@ionic/angular/standalone';
 import { MyDataService } from '../services/my-data.service';
@@ -15,7 +16,7 @@ import { MyHttpService } from '../services/my-http.service';
 })
 export class CountryPage implements OnInit {
 
-  constructor(private ds: MyDataService, private mhs: MyHttpService) { }
+  constructor(private ds: MyDataService, private mhs: MyHttpService, private router: Router) { }
   keyword:string = "";
   // apiKey:string = "fe2e42c8";
   countryInfo!:any;
@@ -43,6 +44,13 @@ export class CountryPage implements OnInit {
     
     // console.log(JSON.stringify(this.countryInfo.data));
     
+      }
+  
+      async openNews() {
+            //set the keyword inputed in the home page to the storage in the data service
+        await this.ds.set("kw", this.keyword)
+        this.router.navigate(['/country'])
+        console.log(this.keyword);
       }
 
 }

@@ -1,6 +1,6 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
-    <ion-title>country</ion-title>
+    <ion-title>{{keyword}}</ion-title>
   </ion-toolbar>
 </ion-header>
 
@@ -9,7 +9,7 @@
     <img src="{{c.flags.png}}" />
     <ion-card-header>
       <ion-card-title>"{{c.name.official}}"</ion-card-title>
-      <ion-button fill="outline">News</ion-button>
+      <ion-button fill="outline" (click)="openNews()" >News</ion-button>
       <ion-button display="block" fill="outline">Weather</ion-button>
     </ion-card-header>
   

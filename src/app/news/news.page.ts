@@ -1,7 +1,9 @@
-import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { Component, OnInit } from '@angular/core';
 import { FormsModule } from '@angular/forms';
+import { Router } from '@angular/router';
 import { IonContent, IonHeader, IonTitle, IonToolbar } from '@ionic/angular/standalone';
+import { MyDataService } from '../services/my-data.service';
 
 @Component({
   selector: 'app-news',
@@ -12,9 +14,18 @@ import { IonContent, IonHeader, IonTitle, IonToolbar } from '@ionic/angular/stan
 })
 export class NewsPage implements OnInit {
 
-  constructor() { }
+  constructor(private router: Router, private ds: MyDataService) {}
 
   ngOnInit() {
   }
+
+    keyword:string = "";
+  
+    async openNews() {
+          //set the keyword inputed in the home page to the storage in the data service
+      await this.ds.set("kw", this.keyword)
+      this.router.navigate(['/country'])
+      console.log(this.keyword);
+    }
 
 }
