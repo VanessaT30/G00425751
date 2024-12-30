@@ -5,9 +5,17 @@
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">weather</ion-title>
-    </ion-toolbar>
-  </ion-header>
+  <ion-card *ngFor="let w of countryWeather">
+    <img src="{{w.weather.icon}}" />
+    <ion-card-header>
+      <ion-card-title>"{{w.title}}"</ion-card-title>
+      <ion-card-subtitle>"{{w.description}}"</ion-card-subtitle>
+      <!-- <ion-button fill="outline" (click)="openNews()" >News</ion-button>
+      <ion-button fill="outline" (click)="openWeather()">Weather</ion-button> -->
+    </ion-card-header>
+  
+    <!-- <ion-card-content>
+      Here's a small text description for the card content. Nothing more, nothing less.
+    </ion-card-content> -->
+  </ion-card>
 </ion-content>

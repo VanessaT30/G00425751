@@ -50,11 +50,11 @@ export class CountryPage implements OnInit {
     console.log(this.countryCode);
   }
 
-  async openWeather() {
+  async openWeather(c:any) {
     //set the keyword inputed in the home page to the storage in the data service
-    await this.ds.set("kw", this.keyword)
+    await this.ds.set("latlng", c.latlng)
+    await this.ds.set("weather", c.capital)
     this.router.navigate(['/weather'])
-    console.log(this.keyword);
+    console.log(c.latlng);
   }
-
 }

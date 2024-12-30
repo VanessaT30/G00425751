@@ -19,10 +19,6 @@ import { MyHttpService } from '../services/my-http.service';
 export class NewsPage implements OnInit {
 
   constructor(private router: Router, private mhs: MyHttpService, private ds: MyDataService) {}
-
-  // countryInfo: string =
-
-//  keyword:string = "";
   apiKey:string = "pub_63814d15701404347256f951eb267372ed4c1";
   countryCodeCCA2: string = "";
   countryNewsInfo!:any;
