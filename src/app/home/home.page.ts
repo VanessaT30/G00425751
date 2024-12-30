@@ -12,12 +12,13 @@ import { MyDataService } from '../services/my-data.service';
 })
 export class HomePage {
   keyword:string = "";
-  
+
   constructor(private router: Router, private ds: MyDataService) {}
 
   async openCountry() {
+        //set the keyword inputed in the home page to the storage in the data service
     await this.ds.set("kw", this.keyword)
-    this.router.navigate(['/movies'])
+    this.router.navigate(['/country'])
     console.log(this.keyword);
   }
 
