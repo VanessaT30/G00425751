@@ -20,6 +20,7 @@ export class CountryPage implements OnInit {
   keyword:string = "";
   // apiKey:string = "fe2e42c8";
   countryInfo!:any;
+  countryCode: string = "";
   //used the name endpoint from restcountries
   options:HttpOptions = {
     url:' https://restcountries.com/v3.1/name/'
@@ -27,23 +28,26 @@ export class CountryPage implements OnInit {
 
   ngOnInit() {
     this.getKW();
+    // this.openNews();
   }
 
   async getKW() {
     this.keyword = await this.ds.get('kw');
     this.options.url = this.options.url.concat(this.keyword);
     let result = await this.mhs.get(this.options);
-    this.countryInfo = result.data
-    
-    console.log(this.options.url);
+    this.countryInfo = result.data;
+
+    this.countryCode = this.countryInfo.cca2;
+    console.log(this.countryCode);
     // console.log(JSON.stringify(this.countryInfo.data));
       }
-  
-  async openNews() {
-    //set the keyword inputed in the home page to the storage in the data service
-    await this.ds.set("kw", this.keyword)
+
+  async openNews(c:any) {
+    //sets the country CCA2 chosen in the country page from the data service storage
+    JSON.stringify(c.cca2)
+    await this.ds.set("CCA2", c.cca2)
     this.router.navigate(['/news'])
-    console.log(this.keyword);
+    console.log(this.countryCode);
   }
 
   async openWeather() {
