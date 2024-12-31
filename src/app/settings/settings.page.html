@@ -5,9 +5,15 @@
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">settings</ion-title>
-    </ion-toolbar>
-  </ion-header>
+  <ion-list>
+    <ion-item>
+      <ion-select label="Alert"  interface="alert" placeholder="Select unit of measure" [(ngModel)]="unit">
+        <ion-select-option value="metric" >Metric</ion-select-option>
+        <ion-select-option value="standard" >Standard</ion-select-option>
+        <ion-select-option value="imperial" >Imperial</ion-select-option>
+      </ion-select>
+    </ion-item>
+  </ion-list>
+<h5> you have selected: {{unit}}</h5>
+<ion-button (click)="setUnit()">Back</ion-button>
 </ion-content>

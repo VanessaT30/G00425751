@@ -46,6 +46,7 @@ export class CountryPage implements OnInit {
     //sets the country CCA2 chosen in the country page from the data service storage
     JSON.stringify(c.cca2)
     await this.ds.set("CCA2", c.cca2)
+    await this.ds.set("country", c.name.official)
     this.router.navigate(['/news'])
     console.log(this.countryCode);
   }

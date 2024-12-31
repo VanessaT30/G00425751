@@ -21,7 +21,7 @@ export class WeatherPage implements OnInit {
   apiKey:string = "8a7fc5f87d76122560a39f0e85a8195c";
   latitude: any = "54";
   longitude: any = "-2";
-  units: any = "metric";
+  units: string = "metric";
   capitalCity:string = "";
   weatherInfo!:any;
   options:HttpOptions = {
