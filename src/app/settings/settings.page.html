@@ -5,15 +5,24 @@
 </ion-header>
 
 <ion-content [fullscreen]="true">
+  <!-- <ion-list>
+    <ion-item>
+      <ion-select aria-label="Favorite Fruit" value="apple">
+        <ion-select-option value="apple">Apple</ion-select-option>
+        <ion-select-option value="banana">Banana</ion-select-option>
+        <ion-select-option value="orange">Orange</ion-select-option>
+      </ion-select>
+    </ion-item>
+  </ion-list> -->
+
   <ion-list>
     <ion-item>
-      <ion-select label="Alert"  interface="alert" placeholder="Select unit of measure" [(ngModel)]="unit">
+      <ion-select aria-label="Unit of Measure" value="metric">
         <ion-select-option value="metric" >Metric</ion-select-option>
         <ion-select-option value="standard" >Standard</ion-select-option>
         <ion-select-option value="imperial" >Imperial</ion-select-option>
       </ion-select>
     </ion-item>
   </ion-list>
-<h5> you have selected: {{unit}}</h5>
-<ion-button (click)="setUnit()">Back</ion-button>
+<ion-button style="margin-left: 1%" (click)="setUnit()">Back</ion-button>
 </ion-content>

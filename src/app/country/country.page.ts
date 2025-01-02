@@ -55,6 +55,7 @@ export class CountryPage implements OnInit {
     //set the keyword inputed in the home page to the storage in the data service
     await this.ds.set("latlng", c.latlng)
     await this.ds.set("capitalW", c.capital)
+    await this.ds.set("icon", c.latlng)
     this.router.navigate(['/weather'])
     console.log(c.latlng);
   }

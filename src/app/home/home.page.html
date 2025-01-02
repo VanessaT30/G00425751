@@ -2,12 +2,12 @@
   <ion-toolbar>
     <ion-title>
       G00425751
-      <ion-icon name="settings-outline" style= "margin-right: auto" (click)="openSettings()"></ion-icon>
+      <ion-icon name="settings-outline" style= "margin-left: 50%" (click)="openSettings()"></ion-icon>
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-input label="Enter Country" placeholder="Country name" [(ngModel)]="keyword"></ion-input>
-  <ion-button (click)="openCountry()">Search</ion-button>
+  <ion-input style="margin-left: 1%" label="Enter Country" placeholder="Country name" [(ngModel)]="keyword"></ion-input>
+  <ion-button style="margin-left: 1%" (click)="openCountry()">Search</ion-button>
 </ion-content>

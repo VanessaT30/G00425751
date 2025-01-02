@@ -6,25 +6,16 @@
 
 <ion-content [fullscreen]="true">
 
-  <!-- <ion-card *ngFor="let w of weatherInfo">
-    <ion-card-header>
-      <ion-card-title>{{capitalCity}}</ion-card-title>
-      <ion-card-subtitle>Card Subtitle</ion-card-subtitle>
-    </ion-card-header>
-  
-    <ion-card-content>
-      Here's a small text description for the card content. Nothing more, nothing less.
-    </ion-card-content>
-  </ion-card> -->
-
-
+<!-- <ion-list >
+  <ion-item >{{capitalCity}}
+  </ion-item>
+</ion-list> -->
 
   <ion-card *ngFor="let w of weatherInfo">
-    <img src="{{w.weather.icon}}" />
+    <img src="{{'https://openweathermap.org/img/wn/' + w.icon + '@2x.png'}}" />
     <ion-card-header>
-      <ion-card-title>"{{capitalCity}}"</ion-card-title>
-      <ion-card-title>"{{w.main.temp}}"</ion-card-title>
-      <ion-card-subtitle>"{{w.weather.description}}"</ion-card-subtitle>
+      <ion-card-title>"{{w.description}}"</ion-card-title>
+      <ion-card-subtitle>"{{tempInfo.temp}}"({{unit}})</ion-card-subtitle>
     </ion-card-header>
   </ion-card>
 </ion-content>
