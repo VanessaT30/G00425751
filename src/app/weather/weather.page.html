@@ -4,13 +4,9 @@
   </ion-toolbar>
 </ion-header>
 
+<!-- sets the weather temp and description by looping using *ngFor and sets the 
+icon to the url needed to fetch the icon from -->
 <ion-content [fullscreen]="true">
-
-<!-- <ion-list >
-  <ion-item >{{capitalCity}}
-  </ion-item>
-</ion-list> -->
-
   <ion-card *ngFor="let w of weatherInfo">
     <img src="{{'https://openweathermap.org/img/wn/' + w.icon + '@2x.png'}}" />
     <ion-card-header>

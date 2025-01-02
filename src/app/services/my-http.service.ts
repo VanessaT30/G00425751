@@ -6,9 +6,9 @@ import { CapacitorHttp, HttpOptions } from '@capacitor/core';
 })
 export class MyHttpService {
 
+  // gets the url using the http capacitor
   constructor() { }
   public async get(options: HttpOptions) {
-    // console.log(options.url);
     return await CapacitorHttp.get(options);
   }
 }

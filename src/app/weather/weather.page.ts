@@ -42,24 +42,20 @@ export class WeatherPage implements OnInit {
     this.getCountryLocation();
   }
 
+  // gets the countrys location, unit of measure and capital city
   async getCountryLocation() {
   this.capitalCity = await this.ds.get('capitalW');
   this.unit = await this.ds.get('unit');
   this.coord = await this.ds.get('latlng');
     console.log(this.coord);
-    [this.latitude, this.longitude] = this.coord;
-    // console.log(this.latitude);
-    // console.log(this.longitude);
+    [this.latitude, this.longitude] = this.coord; // destructures the json data and stores the variables separately
 
+    // calls the full url with all the information needed and stores it in weather info.
     this.options.url = this.options.url.concat(this.latitude + '&lon=' + this.longitude + '&units=' + this.unit + '&appid=' + this.apiKey);
     let result = await this.mhs.get(this.options);
     this.weatherInfo = result.data.weather;
     this.tempInfo = result.data.main;
 
-    // console.log(this.options.url);
-    // console.log(this.weatherInfo);
-    console.log(this.tempInfo);
-    // console.log(JSON.stringify(this.weatherInfo));
     }
 
 }

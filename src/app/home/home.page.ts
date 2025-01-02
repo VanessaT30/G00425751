@@ -14,30 +14,23 @@ import { MyDataService } from '../services/my-data.service';
 })
 
 export class HomePage {
+  keyword:string = ""; // initialised varibale to store keyword
 
-// addIcons({
-//   'flag-en': 'assets/flags/en.svg',
-//   'flag-de': 'assets/flags/de.svg'
-// });
-
-  keyword:string = "";
-
+  // new instances of services we will use
   constructor(private router: Router, private ds: MyDataService) {
     addIcons({ settingsOutline });
   }
 
   async openCountry() {
-        //set the keyword inputed in the home page to the storage in the data service
+    // set the keyword inputed at the home page to storage in the data service 
+    // then rerouted to the country page
     await this.ds.set("kw", this.keyword)
     this.router.navigate(['/country'])
-    console.log(this.keyword);
   }
 
+  //redirecting to the settings page
   async openSettings() {
-    //set the keyword inputed in the home page to the storage in the data service
-// await this.ds.set("kw", this.keyword)
-this.router.navigate(['/settings'])
-// console.log(this.keyword);
+  	this.router.navigate(['/settings'])
 }
 
 }

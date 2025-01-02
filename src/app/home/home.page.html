@@ -2,11 +2,13 @@
   <ion-toolbar>
     <ion-title>
       G00425751
+      <!-- on click it opens the openSettings method and moves the icon to the right -->
       <ion-icon name="settings-outline" style= "margin-left: 50%" (click)="openSettings()"></ion-icon>
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
+<!-- an input space where it takes in the chosen keyword from the user and opens a method on click -->
 <ion-content [fullscreen]="true">
   <ion-input style="margin-left: 1%" label="Enter Country" placeholder="Country name" [(ngModel)]="keyword"></ion-input>
   <ion-button style="margin-left: 1%" (click)="openCountry()">Search</ion-button>

@@ -18,15 +18,17 @@ export class SettingsPage implements OnInit {
   unit:string = "";
 
   constructor(private ds: MyDataService, private mhs: MyHttpService, private router: Router) { }
-
+  // calls the method upon initialisin ghte page
   ngOnInit() {
-    this.setDefault();
+    this.setUnit();
   }
-  async setDefault() {
-    await this.ds.set("unit", this.metric)
-    console.log(this.unit);
-  }
+  // // sets the unit key and the variable that the user set
+  // async setDefault() {
+  //   await this.ds.set("unit", this.metric)
+  //   console.log(this.unit);
+  // }
 
+  // sets the unit key for the variable that the user set
   async setUnit() {
     await this.ds.set("unit", this.unit)
     this.router.navigate(['/home'])

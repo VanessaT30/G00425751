@@ -4,6 +4,7 @@
   </ion-toolbar>
 </ion-header>
 
+<!-- inputed all the variables needed to display all news articles for that country -->
 <ion-content [fullscreen]="true">
   <ion-card *ngFor="let news of countryNewsInfo">
     <img src="{{news.image_url}}" />

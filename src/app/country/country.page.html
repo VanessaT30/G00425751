@@ -1,9 +1,11 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
-    <ion-title>{{keyword}}</ion-title>
+    <ion-title>{{keyword}}</ion-title>  <!-- it displays the keyword from the home page -->
   </ion-toolbar>
 </ion-header>
 
+<!-- it takes in the information from countries api and displays it along with 
+ buttons to be directed to the news and weather for that chosen country -->
 <ion-content [fullscreen]="true">
   <ion-card *ngFor="let c of countryInfo">
     <img src="{{c.flags.png}}" />
