@@ -22,6 +22,7 @@ export class NewsPage implements OnInit {
   apiKey:string = "pub_63814d15701404347256f951eb267372ed4c1";
   countryCodeCCA2: string = "";
   countryNewsInfo!:any;
+  status:any;
   countryName:string = "";
 
   options:HttpOptions = {
@@ -40,7 +41,15 @@ export class NewsPage implements OnInit {
     this.countryName = await this.ds.get('country');
     this.countryCodeCCA2 = await this.ds.get('CCA2');
     this.options.url = this.options.url.concat(this.countryCodeCCA2);
+    console.log(this.options.url);
+    
     let result = await this.mhs.get(this.options);
     this.countryNewsInfo = result.data.results;
+    this.status = result.data.status;
+    if (this.status == "error") {
+      this.router.navigate(['/not-found'])
+    }
+    console.log(this.countryNewsInfo);
+    
     }
 }

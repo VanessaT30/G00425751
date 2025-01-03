@@ -1,0 +1,14 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>News for {{countryName}}</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">No News Found for {{countryName}}</ion-title>
+    </ion-toolbar>
+  </ion-header>
+  <ion-button style="margin-left: 1%" (click)="backHome()">Back</ion-button>
+</ion-content>
